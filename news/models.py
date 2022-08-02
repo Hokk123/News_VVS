@@ -16,7 +16,7 @@ class Author(models.Model):
         cRat = 0
         cRat += commentRat.get('commentRating')
 
-        self.ratingAuthor = pRat *3 + cRat
+        self.ratingAuthor = pRat * 3 + cRat
         self.save()
 
 
@@ -71,4 +71,3 @@ class Comment(models.Model):
     def dislike(self):
         self.rating -= 1
         self.save()
-

@@ -1,0 +1,105 @@
+
+
+>>> from news.models import *
+>>> u1 = User.objects.create_user(username='Petrov')
+>>> u1
+<User: Petrov>
+>>> u2 = User.objects.create_user(username='Ivanov')
+>>> u2
+<User: Ivanov>
+>>> Author.objects.create(authorUser=u1)
+<Author: Author object (1)>
+>>> Category.objects.create(name='IT')
+<Category: Category object (1)>
+>>> Category.objects.create(name='News')
+<Category: Category object (2)>
+>>> u3 = User.objects.create_user(username='Vasechkin')
+>>> Author.objects.create(authorUser=u2)
+<Author: Author object (2)>
+>>> Author.objects.create(authorUser=u3)
+<Author: Author object (3)>
+>>> author = Author.objects.get(id=1)
+>>> author
+<Author: Author object (1)>
+>>> author2 = Author.objects.get(id=2)
+>>> author3 = Author.objects.get(id=3)
+>>> author3
+<Author: Author object (3)>
+>>> Post.objects.create(author=author, categoryType='NW', title='News IT', text='В конце июля VK предупредила, что Microsoft в одностороннем порядке решила не про
+длевать SPLA контракт с облачной платформой VK Cloud Solutions. Из-за этого, согласно лицензионному соглашению с вендором, компания с 31 августа будет вынуждена о
+граничить предоставление сервисов Microsoft в службах VK Cloud Solutions для партнёров и клиентов.'
+... )
+<Post: Post object (1)>
+>>> Post.objects.get(id=1)
+<Post: Post object (1)>
+>>> Post.objects.get(id=1).text
+'В конце июля VK предупредила, что Microsoft в одностороннем порядке решила не продлевать SPLA контракт с облачной платформой VK Cloud Solutions. Из-за этого, сог
+ласно лицензионному соглашению с вендором, компания с 31 августа будет вынуждена ограничить предоставление сервисов Microsoft в службах VK Cloud Solutions для пар
+тнёров и клиентов.'
+>>> Post.objects.get(id=1).postCategory.add(Category.objects.get(id=1))
+>>> Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=2).authorUser, text='Nice comment for this News!')
+<Comment: Comment object (1)>
+>>> Post.objects.create(author=author3, categoryType='AR', title='Next News', text='Российские разработчики специальных средств защиты информации (СЗИ) столкнулис
+ь с перебоями в поставках иностранных комплектующих для производства нужных объёмов своих ИБ-решений для банков, операторов связи и госструктур. Проблемы с компон
+ентами подтвердили СМИ в компаниях UserGate и «Код безопасности».')
+<Post: Post object (2)>
+>>> Comment.objects.get(id=1).like()
+>>> Comment.objects.get(id=1).rating
+1
+>>> Comment.objects.get(id=1).dislike()
+>>> Comment.objects.get(id=1).dislike()
+>>> Comment.objects.get(id=1).rating
+-1
+>>> Post.objects.create(author=author2, categoryType='AR', title='3 News', text='Hyundai и Kia планируют начать сотрудничество с шестью внешними партнёрами по раз
+работке лунохода уже в августе. Компании уже создали внутренний консультативный орган, который определит концепцию проекта.  ')
+<Post: Post object (3)>
+>>> Comment.objects.create(commentPost=Post.objects.get(id=3), commentUser=Author.objects.get(id=3).authorUser, text='next comment')
+<Comment: Comment object (2)>
+>>> Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.objects.get(id=3).authorUser, text='next comment 2')
+<Comment: Comment object (3)>
+>>> Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.objects.get(id=2).authorUser, text='next comment 3')
+<Comment: Comment object (4)>
+>>> Comment.objects.get(id=3).like()
+>>> Comment.objects.get(id=3).like()
+>>> Comment.objects.get(id=3).like()
+>>> Comment.objects.get(id=2).like()
+
+>>> Comment.objects.get(id=1).rating
+-1
+>>> Comment.objects.get(id=2).rating
+1
+>>> Comment.objects.get(id=3).rating
+3
+>>> Comment.objects.get(id=4).rating
+0
+>>> Author.objects.get(id=3)
+<Author: Author object (3)>
+>>> c = Author.objects.get(id=3)
+>>> c.update_rating()
+>>> c.ratingAuthor
+4
+>>> b = Author.objects.order_by('-ratingAuthor')[:1]
+>>> b
+<QuerySet [<Author: Author object (3)>]>
+>>> b = Author.objects.order_by('-ratingAuthor')
+>>> b
+<QuerySet [<Author: Author object (3)>, <Author: Author object (1)>, <Author: Author object (2)>]>
+>>>
+>>> a = Author.objects.get(id=1)
+>>> b = Author.objects.get(id=2)
+>>> c = Author.objects.get(id=3)
+>>> c.ratingAuthor
+4
+>>> r = Author.objects.order_by('-ratingAuthor')
+>>> r
+<QuerySet [<Author: Author object (3)>, <Author: Author object (1)>, <Author: Author object (2)>]>
+>>> b.update_rating()
+>>> c.update_rating()
+>>> r
+<QuerySet [<Author: Author object (3)>, <Author: Author object (1)>, <Author: Author object (2)>]>
+>>> r = Author.objects.order_by('-ratingAuthor')[:1]
+>>> r
+<QuerySet [<Author: Author object (3)>]>
+>>> c.authorUser
+<User: Vasechkin>
+
