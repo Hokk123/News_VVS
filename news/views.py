@@ -4,6 +4,12 @@ from django.views.generic import ListView, DetailView
 from .models import *
 
 
+class AuthorList(ListView):
+    model = Author
+
+
+
+
 class PostLists(ListView):
     # Указываем модель, объекты которой мы будем выводить
     model = Post
