@@ -8,5 +8,7 @@ News
 
 <!-- В контенте на странице мы выводим сам товар, идентификатор которого был передан в url -->
 {% block content %}
-<h1>{{ new }}</h1>
+<h1>{{ Post.author }}</h1>
+<h1>{{ Post.title }}</h1>
+<h1>{{ Post.text }}</h1>
 {% endblock content %}

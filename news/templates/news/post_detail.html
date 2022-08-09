@@ -1,0 +1,15 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Posts
+{% endblock title %}
+
+{% block content %}
+<h2>{{ Post.author }}</h2>
+<h3>{{ Post.title }}</h3>
+<h3>{{ Post.categoryType }}</h3>
+<h3>{{ Post.dateCreation }}</h3>
+<h3>{{ Post.rating}}</h3>
+<h4>{{ Post.filter_text }}</h4>
+{% endblock content %}
