@@ -1,11 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
+from django.urls import reverse
 
 
 class Author(models.Model):
     authorUser = models.OneToOneField(User, on_delete=models.CASCADE)
     ratingAuthor = models.SmallIntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.authorUser}'
 
     def update_rating(self):
         postRat = self.post_set.aggregate(postRating=Sum('rating'))
@@ -22,6 +26,9 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=64, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -40,18 +47,32 @@ class Post(models.Model):
     text = models.TextField()
     rating = models.SmallIntegerField(default=0)
 
+
+    def __str__(self):
+        return f'{self.text}\n' \
+               f'Рейтинг статьи: {self.post_rating}\n' \
+               f'Автор: {self.author.authorUser}'
+
+
     def like(self):
         self.rating += 1
         self.save()
+
 
     def dislike(self):
         self.rating -= 1
         self.save()
 
+
     def preview(self):
         return self.text[0:123] + '...'
 
-    def filter_text(self):
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.id)])
+
+
+    def censor(self):
         text = self.text
         variants = ['mat', 'soft', 'CLOUD', 'клиентов', 'конце']  # непристойные выражения
 
