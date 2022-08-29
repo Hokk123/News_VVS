@@ -1,6 +1,18 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from .models import Post, Author
+from .models import Post, Author, User
+
+
+class ProfilForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = [
+            'first_name',
+            'last_name',
+            'email',
+            'username',
+        ]
 
 
 class PostForm(forms.ModelForm):

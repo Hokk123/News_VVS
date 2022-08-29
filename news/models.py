@@ -50,7 +50,7 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.text}\n' \
-               f'Рейтинг статьи: {self.post_rating}\n' \
+               f'Рейтинг статьи: {self.rating}\n' \
                f'Автор: {self.author.authorUser}'
 
 

@@ -15,7 +15,7 @@ class AuthorList(ListView):
     model = Author
     context_object_name = 'Authors'
     template_name = 'news/authors.html'
-    paginate_by = 3
+    # paginate_by = 100
     #queryset = Author.objects.all()
 
     # def get_queryset(self):
@@ -68,15 +68,44 @@ class PostDetail(DetailView):
 class PostCreate(CreateView):
     form_class = PostForm
     model = Post
+    permission_required = (
+        'news.add_post',
+    )
     template_name = 'news/news_create.html'
     success_url = reverse_lazy('post_list')
 
-    def form_valid(self, form):
-        post = form.save(commit=False)
-        # post.postCategory = 'NW'
-        # post.dateCreation = datetime.utcnow()
-        # post.author = Author.objects.get(author_user=self.request.user)
-        return super().form_valid(form)
+    # def form_valid(self, form):
+    #     self.object = form.save(commit=False)
+    #     self.object.author = Author.objects.get(user=self.request.user)
+    #     postauthor = self.object.author
+    #     DAILY_POST_LIMIT = 30
+    #     error_message = f'No more than {DAILY_POST_LIMIT} posts a day, dude!'
+    #     posts = Post.objects.all()
+    #
+    #     today_posts_count = 0
+    #     for post in posts:
+    #         if post.author == postauthor:
+    #             time_delta = datetime.now().date() - post.time_pub.date()
+    #             if time_delta.total_seconds() < (60*60*24):
+    #                 today_posts_count += 1
+    #
+    #     if today_posts_count < DAILY_POST_LIMIT:
+    #         self.object.save()
+    #         id_new_post = self.object.id
+    #         # print(id_new_post)
+    #         print('notifying subscribers from view (no signals)...', id_new_post)
+    #         new_post_subscription.apply_async([id_new_post], countdown = 5)
+    #
+    #         # cat = Category.objects.get(pk=self.request.POST['cats'])
+    #         # self.object.cats.add(cat)
+    #
+    #         validated = super().form_valid(form)
+    #
+    #     else:
+    #         messages.error(self.request, self.error_message)
+    #         validated = super().form_invalid(form)
+    #
+    #     return validated
 
 
 class SearchNews(ListView):
@@ -98,6 +127,14 @@ class SearchNews(ListView):
         # Добавляем в контекст объект фильтрации.
         context['filterset'] = self.filterset
         return context
+
+
+class ProfilUpdate(UpdateView):
+    form_class = ProfilForm
+    model = Author
+    template_name = 'news/user_edit.html'
+    success_url = reverse_lazy('post_list')
+
 
 
 # Добавляем представление для изменения.

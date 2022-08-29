@@ -2,19 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5326b669-4747-4974-8dce-2974d3961ece" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/news/templates/news/post_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/templates/news/post_edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/templates/news/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/News_VVS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_VVS/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_VVS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_VVS/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/templates/news/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/templates/news/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/templates/flatpages/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/flatpages/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/templates/news/authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/authors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/templates/news/user_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/user_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/templates/protect/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/protect/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/templates/sign/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/sign/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/templates/sign/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/sign/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/templates/sign/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/sign/signup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/flatpages/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/new.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sign/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +44,15 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/news/templates/sign" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Python\DjangoProject\News_VVS\news\templates\sign" />
+      <recent name="E:\Python\DjangoProject\News_VVS\news\templates\protect" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
