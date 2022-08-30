@@ -5,13 +5,14 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
-
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
+from django.contrib.auth.models import User
 from .filters import *
 from .forms import *
 from .models import Post, Author
 
 
-class AuthorList(ListView):
+class AuthorList(LoginRequiredMixin, ListView):
     model = Author
     context_object_name = 'Authors'
     template_name = 'news/authors.html'
@@ -21,13 +22,6 @@ class AuthorList(ListView):
     # def get_queryset(self):
     #     self.authorUser = get_object_or_404(Author, name=self.args[0])
     #     return Author.objects.filter(authorUser=self.authorUser)
-
-
-
-
-class AuthorList(ListView):
-    model = Author
-
 
 
 
@@ -71,7 +65,7 @@ class PostDetail(DetailView):
 
 
 # Добавляем новое представление для создания новостей.
-class PostCreate(CreateView):
+class PostCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     form_class = PostForm
     model = Post
     permission_required = (
@@ -135,24 +129,33 @@ class SearchNews(ListView):
         return context
 
 
-class ProfilUpdate(UpdateView):
+class ProfilUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     form_class = ProfilForm
     model = Author
+    permission_required = (
+        'news.change_author',
+    )
     template_name = 'news/user_edit.html'
-    success_url = reverse_lazy('post_list')
+    success_url = reverse_lazy('authors')
 
 
 
 # Добавляем представление для изменения.
-class PostUpdate(UpdateView):
+class PostUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = PostForm
     model = Post
+    permission_required = (
+        'news.change_post',
+    )
     template_name = 'news/post_edit.html'
     success_url = reverse_lazy('post_list')
 
 
 # Представление для удаления.
-class PostDelete(DeleteView):
+class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
+    permission_required = (
+        'news.delete_post',
+    )
     template_name = 'news/post_delete.html'
     success_url = reverse_lazy('post_list')
