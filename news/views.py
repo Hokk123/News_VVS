@@ -19,6 +19,12 @@ class AuthorList(ListView):
 
 
 
+class AuthorList(ListView):
+    model = Author
+
+
+
+
 class PostLists(ListView):
     # Указываем модель, объекты которой мы будем выводить
     model = Post
