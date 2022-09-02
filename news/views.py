@@ -10,6 +10,16 @@ from django.contrib.auth.models import User
 from .filters import *
 from .forms import *
 from .models import Post, Author
+from django.template.loader import render_to_string
+
+
+# def notify_manager_models(sender, instance, created, **kwargs):
+#     mail_managers(
+#         subject=f'{instance.client_name} {instance.date.strftime("%d %m %Y")}',
+#         message=instance.message,
+#     )
+#
+# post_save.connect(notify_manager_models, sender=Post)
 
 
 class AuthorList(LoginRequiredMixin, ListView):

@@ -3,6 +3,7 @@
 {% block content %}
 <h1>Edit User Profile</h1>
 <h1>{{ author.authorUser }}</h1>
+<h5>{{ author.pk }}</h5>
 <hr>
 <form action="" method="post">
     {% csrf_token %}

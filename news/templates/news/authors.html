@@ -8,7 +8,9 @@ Author
 
 {% block content %}
 {% for author in Authors %}
-<h3>{{ author.authorUser}}</h3>
+<h3>{{ author.authorUser }}</h3>
+<h6>{{ author.pk }}</h6>
 {% endfor %}
+<h1>{{ request.user.pk }}</h1>
 
 {% endblock content %}
