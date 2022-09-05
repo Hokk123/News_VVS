@@ -1,0 +1,91 @@
+[33mcommit 10f106587b815a8ef7259fefdf74df3f19dd39ba[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: VVS <vladimir_vs@list.ru>
+Date:   Sun Sep 4 20:15:46 2022 +0300
+
+    home edit
+
+[33mcommit 1d40faa3478a5c6c76a4209d20524467395368cd[m
+Author: Hokk123 <vladimir_vs@list.ru>
+Date:   Fri Sep 2 16:29:43 2022 +0300
+
+    D6.4
+
+[33mcommit 6ba924e56379b22a835e94e478ae98c4e195f460[m
+Author: Hokk123 <vladimir_vs@list.ru>
+Date:   Tue Aug 30 17:24:16 2022 +0300
+
+    D5.6.2 finish
+
+[33mcommit 85a249b6c77149a9f2c858f1681e64d1bff6d8b5[m
+Merge: 986c9d4 dfb09d1
+Author: Hokk123 <vladimir_vs@list.ru>
+Date:   Tue Aug 30 10:45:34 2022 +0300
+
+    Merge branch 'main' of https://github.com/Hokk123/News_VVS
+
+[33mcommit 986c9d4e43bb56dc2725af3be646d221c26ce3b2[m
+Merge: 2de93fe fe2d660
+Author: Hokk123 <vladimir_vs@list.ru>
+Date:   Tue Aug 30 10:45:26 2022 +0300
+
+    git pull
+
+[33mcommit dfb09d17aa4b2ed53e2d95fcfb7f1089caa59c2c[m
+Author: VVS <vladimir_vs@list.ru>
+Date:   Mon Aug 29 19:57:43 2022 +0300
+
+    D5.6.2
+
+[33mcommit 2a4bdc7590ce4868a613872001ffefc4cbdd6ca8[m
+Author: VVS <vladimir_vs@list.ru>
+Date:   Wed Aug 24 21:34:38 2022 +0300
+
+    D5.6
+
+[33mcommit a40bc9bf78f6a57d877ea01a93ebf58f545fd9a6[m
+Author: VVS <vladimir_vs@list.ru>
+Date:   Thu Aug 18 14:21:28 2022 +0300
+
+    D4,7
+
+[33mcommit 2de93fe46de4f2dca0075eb4f949a8790bb5cfbc[m
+Author: Hokk123 <vladimir_vs@list.ru>
+Date:   Tue Aug 9 16:41:27 2022 +0300
+
+    Project News D3
+
+[33mcommit fe2d660380e6ab310f69ba3f6acda7585312adaa[m
+Author: VVS <vladimir_vs@list.ru>
+Date:   Sat Aug 6 16:06:43 2022 +0300
+
+    home commit
+
+[33mcommit 889dd3d768c6f48c8e61c2c341151fd0a069ff65[m
+Author: Hokk123 <vladimir_vs@list.ru>
+Date:   Fri Aug 5 16:38:58 2022 +0300
+
+    next commit
+
+[33mcommit f0286de9639a08ac8565e6b5a38626fde41a9ec9[m
+Author: Hokk123 <vladimir_vs@list.ru>
+Date:   Fri Aug 5 16:33:59 2022 +0300
+
+    next commit
+
+[33mcommit 41a8ce0e452a7ddc9f9ce3eab39c2c2f04519d1c[m
+Author: Hokk123 <vladimir_vs@list.ru>
+Date:   Tue Aug 2 15:50:56 2022 +0300
+
+    eme file - shell.txt
+
+[33mcommit 1d707099c6485b1ff29a27dd97a823acf13047e3[m
+Author: Hokk123 <vladimir_vs@list.ru>
+Date:   Mon Aug 1 17:00:28 2022 +0300
+
+    second commit
+
+[33mcommit 29f9fee61d403c5adf465a4e6e47473e06fa783f[m
+Author: Hokk123 <vladimir_vs@list.ru>
+Date:   Mon Aug 1 14:21:06 2022 +0300
+
+    new commit
