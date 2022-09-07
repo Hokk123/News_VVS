@@ -19,7 +19,6 @@ from django.conf import settings
 from django.utils import timezone
 
 
-
 # def notify_manager_models(sender, instance, created, **kwargs):
 #     mail_managers(
 #         subject=f'{instance.client_name} {instance.date.strftime("%d %m %Y")}',
@@ -34,12 +33,11 @@ class AuthorList(LoginRequiredMixin, ListView):
     context_object_name = 'Authors'
     template_name = 'news/authors.html'
     # paginate_by = 100
-    #queryset = Author.objects.all()
+    # queryset = Author.objects.all()
 
     # def get_queryset(self):
     #     self.authorUser = get_object_or_404(Author, name=self.args[0])
     #     return Author.objects.filter(authorUser=self.authorUser)
-
 
 
 class PostLists(ListView):
@@ -75,7 +73,6 @@ class PostLists(ListView):
         return context
 
 
-
 class PostDetail(DetailView):
     model = Post
     context_object_name = 'Post'
@@ -90,7 +87,6 @@ class PostDetail(DetailView):
         context['is_not_subscribe'] = not self.request.user.groups.filter(name='subscribers').exists()
         context['is_subscribe'] = self.request.user.groups.filter(name='subscribers').exists()
         return context
-
 
 
 # Добавляем новое представление для создания новостей.
@@ -110,22 +106,36 @@ class PostCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
         last_day = timezone.now() - timedelta(days=1)
 
         posts_day_count = Post.objects.filter(
-            author_connect__authorUser=self.request.user,
+            author__authorUser=self.request.user,
             dateCreation__gte=last_day,
         ).count()
         context['count'] = posts_day_count
         context['post_limit'] = posts_day_count < limit
         return context
 
-    html_content = render_to_string('email/cat_subscribe.html')
+    def post(self, request, *args, **kwargs):
+        post_mail = Post(
+            text=request.POST['text'],
+            title=request.POST['title'],
+        )
+        post_mail.save()
+        html_content = render_to_string(
+            'email/cat_subscribe.html',
+            {
+                'news': post_mail,
+            }
+        )
+        load_dotenv()
+        msg = EmailMultiAlternatives(
+            subject=f'Новая публикация в вашем любимом разделе.',
+            body=post_mail.title,
+            from_email='DEFAULT_FROM_EMAIL',
+            to=['vladimir_vs@list.ru'],
+        )
+        msg.attach_alternative(html_content, "text/html")  # добавляем html
+        msg.send()  # отсылаем
 
-    msg = EmailMultiAlternatives(
-        subject=f'{Post.objects.latest("id").title}',
-        body=f'Здравствуй. Новая статья в твоем любимом разделе!',
-        from_email='Hokk1234@yandex.ru',
-        to=['vladimir_vs@list.ru'],
-    )
-    msg.send()
+        return redirect('/news/news/')
 
 
 class SearchNews(ListView):
@@ -159,7 +169,6 @@ class ProfilUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     success_url = reverse_lazy('authors')
 
 
-
 # Добавляем представление для изменения.
 class PostUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = PostForm
@@ -182,41 +191,48 @@ class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 #  Подписка на категорию
-@login_required
-def add_subscribe(request, **kawargs):
-    cat_number = int(kwargs['pk'])
-    is_subscribed = category.subscribers.filter(id=user.id).exists()
-    if not is_subscribed:
-        # Добавляем подписчика в базу и
-        # отправляем письмо об успешной подписке
-        Category.objects.get(pk=cat_number).subscribers.add(request.user)
-        html_content = render_to_string(
-            'email/cat_subscribe.html',
-            {
-                'user': user,
-                'category': category.name,
-            }
-        )
-        message = EmailMultiAlternatives(
-            subject=f'{user}, подписка на новости {category.name} оформлена!',
-            from_email=settings.EMAIL,
-            to=[user.email],
-        )
-        message.attach_alternative(html_content, 'text/html')
-        try:
-            message.send()
-        except Exception as e:
-            print(e)
-        finally:
-            return redirect('/news/news/')
+# @login_required
+# def add_subscribe(request, **kawargs):
+#     cat_number = int(kwargs['pk'])
+#     is_subscribed = category.subscribers.filter(id=user.id).exists()
+#     if not is_subscribed:
+#         # Добавляем подписчика в базу и
+#         # отправляем письмо об успешной подписке
+#         Category.objects.get(pk=cat_number).subscribers.add(request.user)
+#         html_content = render_to_string(
+#             'email/cat_subscribe.html',
+#             {
+#                 'user': user,
+#                 'category': category.name,
+#             }
+#         )
+#         message = EmailMultiAlternatives(
+#             subject=f'{user}, подписка на новости {category.name} оформлена!',
+#             from_email=settings.EMAIL,
+#             to=[user.email],
+#         )
+#         message.attach_alternative(html_content, 'text/html')
+#         try:
+#             message.send()
+#         except Exception as e:
+#             print(e)
+#         finally:
+#             return redirect('/news/news/')
 
-
-#  Функция отписки от категории
+#подписка
 @login_required
-def del_subscribe(request, postCategory):
+def add_subscribe(request, **kwargs):
     user = request.user
-    category = Category.objects.get(pk=postCategory)
-    is_subscribed = category.subscribers.filter(id=user.id).exists()
-    if is_subscribed:
-        category.subscribers.remove(user)
-    return redirect('/news/news/')
+    cat_number = int(kwargs['pk'])
+    category = Category.objects.get(pk=cat_number)
+    category.subscribers.add(user)
+    return redirect('/news/')
+
+#отписка
+@login_required
+def del_subscribe(request, **kwargs):
+    user = request.user
+    cat_number = int(kwargs['pk'])
+    category = Category.objects.get(pk=cat_number)
+    category.subscribers.remove(user)
+    return redirect('/news/')

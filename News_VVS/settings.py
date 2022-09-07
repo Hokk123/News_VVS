@@ -180,7 +180,7 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # ваше имя пользов
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # пароль от почты
 EMAIL_USE_SSL = True  # Яндекс использует ssl
 
-DEFAULT_FROM_EMAIL = 'test.django.proj@yandex.ru'  # Адрес электронной почты по умолчанию, который будет использоваться для различной автоматической
+DEFAULT_FROM_EMAIL = 'Hokk1234@yandex.ru'  # Адрес электронной почты по умолчанию, который будет использоваться для различной автоматической
 # корреспонденции от менеджера(ов) сайта.
 # Сюда не входят сообщения об ошибках, отправленные на адреса ADMINS и MANAGERS; для этого смотрите SERVER_EMAIL.
 
