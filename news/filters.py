@@ -1,4 +1,4 @@
-import django
+
 from django_filters import FilterSet, DateFilter, CharFilter, ModelChoiceFilter
 from django.forms import DateTimeInput
 from .models import Post, Author
@@ -17,4 +17,4 @@ class PostFilter(FilterSet):
 
     class Meta:
         model = Post
-        fields = ['date', 'title', 'author']
+        fields = ['dateCreation', 'title', 'author']

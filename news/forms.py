@@ -30,8 +30,8 @@ class PostForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        heading = cleaned_data.get("post_heading")
-        text = cleaned_data.get("post_text")
+        heading = cleaned_data.get("title")
+        text = cleaned_data.get("text")
 
         if heading == text:
             raise ValidationError(

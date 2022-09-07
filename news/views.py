@@ -1,16 +1,23 @@
 # Импортируем класс, который говорит нам о том,
 # что в этом представлении мы будем выводить список объектов из БД
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from datetime import datetime, timedelta
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse_lazy
-from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
-from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from .filters import *
 from .forms import *
-from .models import Post, Author
-from django.template.loader import render_to_string
+from .models import Post, Author, Category, Comment
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives  # импортируем класс для создания объекта письма с html
+from django.core.mail import mail_admins  # импортируем функцию для массовой отправки писем админам
+from django.template.loader import render_to_string  # импортируем функцию, которая срендерит наш html в текст
+from django.conf import settings
+from django.utils import timezone
+
 
 
 # def notify_manager_models(sender, instance, created, **kwargs):
@@ -39,7 +46,7 @@ class PostLists(ListView):
     # Указываем модель, объекты которой мы будем выводить
     model = Post
     # Поле, которое будет использоваться для сортировки объектов
-    ordering = 'title'
+    ordering = '-dateCreation'
     # Указываем имя шаблона, в котором будут все инструкции о том,
     # как именно пользователю должны быть показаны наши объекты
     template_name = 'news/news.html'
@@ -61,6 +68,8 @@ class PostLists(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # К словарю добавим текущую дату в ключ 'time_now'.
+        context['time_now'] = datetime.utcnow()
         # Добавляем в контекст объект фильтрации.
         context['filterset'] = self.filterset
         return context
@@ -72,50 +81,51 @@ class PostDetail(DetailView):
     context_object_name = 'Post'
     template_name = 'news/post_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Подтягиваем комментарии к статье
+        # context['comments'] = Comment.objects.select_related().filter(
+        #     post_id=self.kwargs['pk']
+        # )
+        context['is_not_subscribe'] = not self.request.user.groups.filter(name='subscribers').exists()
+        context['is_subscribe'] = self.request.user.groups.filter(name='subscribers').exists()
+        return context
+
 
 
 # Добавляем новое представление для создания новостей.
 class PostCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     form_class = PostForm
     model = Post
-    permission_required = (
-        'news.add_post',
-    )
+    permission_required = ('news.add_post', 'news.change_post', 'news.delete_post')
     template_name = 'news/news_create.html'
     success_url = reverse_lazy('post_list')
 
-    # def form_valid(self, form):
-    #     self.object = form.save(commit=False)
-    #     self.object.author = Author.objects.get(user=self.request.user)
-    #     postauthor = self.object.author
-    #     DAILY_POST_LIMIT = 30
-    #     error_message = f'No more than {DAILY_POST_LIMIT} posts a day, dude!'
-    #     posts = Post.objects.all()
-    #
-    #     today_posts_count = 0
-    #     for post in posts:
-    #         if post.author == postauthor:
-    #             time_delta = datetime.now().date() - post.time_pub.date()
-    #             if time_delta.total_seconds() < (60*60*24):
-    #                 today_posts_count += 1
-    #
-    #     if today_posts_count < DAILY_POST_LIMIT:
-    #         self.object.save()
-    #         id_new_post = self.object.id
-    #         # print(id_new_post)
-    #         print('notifying subscribers from view (no signals)...', id_new_post)
-    #         new_post_subscription.apply_async([id_new_post], countdown = 5)
-    #
-    #         # cat = Category.objects.get(pk=self.request.POST['cats'])
-    #         # self.object.cats.add(cat)
-    #
-    #         validated = super().form_valid(form)
-    #
-    #     else:
-    #         messages.error(self.request, self.error_message)
-    #         validated = super().form_invalid(form)
-    #
-    #     return validated
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Проверяем количество постов автора за текущие сутки
+        limit = settings.DAILY_POST_LIMIT
+
+        context['limit'] = limit
+        last_day = timezone.now() - timedelta(days=1)
+
+        posts_day_count = Post.objects.filter(
+            author_connect__authorUser=self.request.user,
+            dateCreation__gte=last_day,
+        ).count()
+        context['count'] = posts_day_count
+        context['post_limit'] = posts_day_count < limit
+        return context
+
+    html_content = render_to_string('email/cat_subscribe.html')
+
+    msg = EmailMultiAlternatives(
+        subject=f'{Post.objects.latest("id").title}',
+        body=f'Здравствуй. Новая статья в твоем любимом разделе!',
+        from_email='Hokk1234@yandex.ru',
+        to=['vladimir_vs@list.ru'],
+    )
+    msg.send()
 
 
 class SearchNews(ListView):
@@ -169,3 +179,44 @@ class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     )
     template_name = 'news/post_delete.html'
     success_url = reverse_lazy('post_list')
+
+
+#  Подписка на категорию
+@login_required
+def add_subscribe(request, **kawargs):
+    cat_number = int(kwargs['pk'])
+    is_subscribed = category.subscribers.filter(id=user.id).exists()
+    if not is_subscribed:
+        # Добавляем подписчика в базу и
+        # отправляем письмо об успешной подписке
+        Category.objects.get(pk=cat_number).subscribers.add(request.user)
+        html_content = render_to_string(
+            'email/cat_subscribe.html',
+            {
+                'user': user,
+                'category': category.name,
+            }
+        )
+        message = EmailMultiAlternatives(
+            subject=f'{user}, подписка на новости {category.name} оформлена!',
+            from_email=settings.EMAIL,
+            to=[user.email],
+        )
+        message.attach_alternative(html_content, 'text/html')
+        try:
+            message.send()
+        except Exception as e:
+            print(e)
+        finally:
+            return redirect('/news/news/')
+
+
+#  Функция отписки от категории
+@login_required
+def del_subscribe(request, postCategory):
+    user = request.user
+    category = Category.objects.get(pk=postCategory)
+    is_subscribed = category.subscribers.filter(id=user.id).exists()
+    if is_subscribed:
+        category.subscribers.remove(user)
+    return redirect('/news/news/')

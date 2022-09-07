@@ -16,8 +16,6 @@ from dotenv import load_dotenv
 from os.path import join, dirname
 
 
-# dotenv_path = join(dirname(__file__), '.env')
-# if os.path.exists(dotenv_path):
 load_dotenv()
 
 
@@ -63,6 +61,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'django_apscheduler',
     # ... include the providers you want to enable:
     #'allauth.socialaccount.providers.google',
 ]
@@ -77,6 +76,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
 ]
 
 ROOT_URLCONF = 'News_VVS.urls'
@@ -135,7 +135,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -179,3 +179,15 @@ EMAIL_PORT = os.getenv('EMAIL_PORT')  # порт smtp сервера тоже о
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # ваше имя пользователя, например, если ваша почта user@yandex.ru, то сюда надо писать user, иными словами, это всё то что идёт до собаки
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # пароль от почты
 EMAIL_USE_SSL = True  # Яндекс использует ssl
+
+DEFAULT_FROM_EMAIL = 'test.django.proj@yandex.ru'  # Адрес электронной почты по умолчанию, который будет использоваться для различной автоматической
+# корреспонденции от менеджера(ов) сайта.
+# Сюда не входят сообщения об ошибках, отправленные на адреса ADMINS и MANAGERS; для этого смотрите SERVER_EMAIL.
+
+# формат даты, которую будет воспринимать наш задачник
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+
+# если задача не выполняется за 25 секунд, то она автоматически снимается, можете поставить время побольше, но как правило, это сильно бьёт по производительности сервера
+APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
+
+DAILY_POST_LIMIT = 3

@@ -25,6 +25,11 @@ News
        <h3>{{ post.author }}</h3>
        <h3>{{ post.title }}</h3>
        <h4>{{ post.categoryType }}</h4>
+       <li class="nav-item active">
+           <a class="nav-link" href="/news/news/{{post.pk}}">{{post.pk}}
+           </a>
+       </li>
+       <h4>{{ post.postCategory }}</h4>
        <h4>{{ post.dateCreation|date:'M d Y' }}</h4>
        <h4>{{ post.rating}}</h4>
        <h5>{{ post.text|truncatewords:20 }}</h5>

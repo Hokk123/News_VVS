@@ -26,9 +26,15 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=64, unique=True)
+    subscribers = models.ManyToManyField(User, through='CategorySubscribers', blank=True,)
 
     def __str__(self):
         return self.name
+
+
+class CategorySubscribers(models.Model):
+    subscriber = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True,)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True,)
 
 
 class Post(models.Model):
@@ -41,7 +47,7 @@ class Post(models.Model):
         (ARTICLE, 'Статья'),
     )
     categoryType = models.CharField(max_length=2, choices=CATEGORY_CHOICES, default=ARTICLE)
-    # subscribers = models.ManyToManyField()
+
     dateCreation = models.DateTimeField(auto_now_add=True)
     postCategory = models.ManyToManyField(Category, through='PostCategory')
     title = models.CharField(max_length=128)
@@ -52,7 +58,7 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.text}\n' \
                f'Рейтинг статьи: {self.rating}\n' \
-               f'Автор: {self.author.authorUser}'
+               f'Автор: {self.author}'
 
 
     def like(self):
@@ -108,8 +114,11 @@ class Post(models.Model):
 
 
 class PostCategory(models.Model):
-    postThrough = models.ForeignKey(Post, on_delete=models.CASCADE)
-    categoryThrough = models.ForeignKey(Category, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    cat = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.post)
 
 
 class Comment(models.Model):
@@ -126,3 +135,6 @@ class Comment(models.Model):
     def dislike(self):
         self.rating -= 1
         self.save()
+
+    def __str__(self):
+        return self.text

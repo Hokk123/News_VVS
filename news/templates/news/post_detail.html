@@ -9,7 +9,34 @@ Posts
 <h2>{{ Post.author }}</h2>
 <h3>{{ Post.title }}</h3>
 <h3>{{ Post.categoryType }}</h3>
+<h3>{{ post_category }}</h3>
 <h3>{{ Post.dateCreation }}</h3>
 <h3>{{ Post.rating}}</h3>
 <h4>{{ Post.censor }}</h4>
+
+<hr><br>
+{% for cat in post_category %}
+    {% if cat.cat.name not in is_subscribed %}
+        <div class="container text-start">
+            <div class="btn-group btn-group-sm" role="group">
+                <button type="button" class="btn btn-primary disabled">{{ cat.cat.name }}</button>
+                <button type="button" class="btn btn-success">
+                    <a class="text-decoration-none text-light" href="/subscribe_cat/{{ cat.cat_id }}/">Подписаться на новости в категории: "{{ cat.cat.name }}"</a>
+                </button>
+            </div>
+        </div>
+    {% elif cat.cat.name in is_subscribed %}
+        <div class="container text-start">
+            <div class="btn-group btn-group-sm" role="group">
+                <button type="button" class="btn btn-primary disabled">{{ cat.cat.name }}</button>
+                <button type="button" class="btn btn-danger">
+                    <a class="text-decoration-none text-light" href="/unsubscribe_cat/{{ cat.cat_id }}/">Отписаться от новостей в категории: "{{ cat.cat.name }}"</a>
+                </button>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+<hr><br>
+<a href="/news/news/">Все статьи</a>
+
 {% endblock content %}
