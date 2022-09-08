@@ -149,12 +149,11 @@ class PostCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
         )
         post_mail.save()
         html_content = render_to_string(
-            'email/cat_subscribe.html',
+            'email/added_post.html',
             {
                 'news': post_mail,
             }
         )
-        load_dotenv()
         msg = EmailMultiAlternatives(
             subject=f'Новая публикация в вашем любимом разделе.',
             body=post_mail.title,
