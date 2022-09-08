@@ -88,6 +88,34 @@ class PostDetail(DetailView):
         context['is_subscribe'] = self.request.user.groups.filter(name='subscribers').exists()
         return context
 
+    def subscribe(request, pk):
+        context = {
+            'user': request.user,
+            'cat': Category.objects.get(id=pk),
+            'is_subscribed': Category.objects.get(id=pk).subscribers.filter(id=request.user.id).exists()
+        }
+        return render(request, 'news/subscribe.html', context)
+
+
+
+#подписка
+@login_required
+def add_subscribe(request, **kwargs):
+    user = request.user
+    cat_number = int(kwargs['pk'])
+    category = Category.objects.get(pk=cat_number)
+    category.subscribers.add(user)
+    return redirect('/news/')
+
+#отписка
+@login_required
+def del_subscribe(request, **kwargs):
+    user = request.user
+    cat_number = int(kwargs['pk'])
+    category = Category.objects.get(pk=cat_number)
+    category.subscribers.remove(user)
+    return redirect('/news/')
+
 
 # Добавляем новое представление для создания новостей.
 class PostCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
@@ -96,6 +124,7 @@ class PostCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     permission_required = ('news.add_post', 'news.change_post', 'news.delete_post')
     template_name = 'news/news_create.html'
     success_url = reverse_lazy('post_list')
+    # author = Author.objects.get(authorUser=self.request.user
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -219,20 +248,3 @@ class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 #         finally:
 #             return redirect('/news/news/')
 
-#подписка
-@login_required
-def add_subscribe(request, **kwargs):
-    user = request.user
-    cat_number = int(kwargs['pk'])
-    category = Category.objects.get(pk=cat_number)
-    category.subscribers.add(user)
-    return redirect('/news/')
-
-#отписка
-@login_required
-def del_subscribe(request, **kwargs):
-    user = request.user
-    cat_number = int(kwargs['pk'])
-    category = Category.objects.get(pk=cat_number)
-    category.subscribers.remove(user)
-    return redirect('/news/')

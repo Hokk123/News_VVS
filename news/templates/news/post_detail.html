@@ -15,13 +15,14 @@ Posts
 <h4>{{ Post.censor }}</h4>
 
 <hr><br>
-<a href="/add_subscribe/?pk=3/">Подписаться на новости в категории: "{{ Post.categoryType }}"</a>
-{% for cat in post_category %}
+<a href="/add_subscribe/1/">Подписаться на новости в категории: "{{ Post.categoryType }}"</a>
+{% for cat in Post.postCategory.all %}
     {% if cat.cat.name not in is_subscribed %}
         <div class="container text-start">
             <div class="btn-group btn-group-sm" role="group">
+                <button type="button" class="btn btn-primary disabled">{{ cat.cat.name }}</button>
                 <button type="button" class="btn btn-success">
-                    <a class="text-decoration-none text-light" href="/add_subscribe/{{cat.pk}}/">Подписаться на новости в категории: "{{ cat.pk }}"</a>
+                    <a class="text-decoration-none text-light" href="/news/add_subscribe/{{ cat.cat_id }}/">Подписаться на новости в категории: "{{ cat.cat.name }}"</a>
                 </button>
             </div>
         </div>
@@ -30,7 +31,7 @@ Posts
             <div class="btn-group btn-group-sm" role="group">
                 <button type="button" class="btn btn-primary disabled">{{ cat.cat.name }}</button>
                 <button type="button" class="btn btn-danger">
-                    <a class="text-decoration-none text-light" href="/del_unsubscribe/{{cat.pk}}/">Отписаться от новостей в категории: "{{ cat.cat.name }}"</a>
+                    <a class="text-decoration-none text-light" href="/news/del_unsubscribe/{{ cat.cat_id }}/">Отписаться от новостей в категории: "{{ cat.cat.name }}"</a>
                 </button>
             </div>
         </div>
