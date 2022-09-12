@@ -191,3 +191,11 @@ APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
 APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
 
 DAILY_POST_LIMIT = 3
+
+CELERY_BROKER_URL = 'redis-12339.c1.asia-northeast1-1.gce.cloud.redislabs.com:12339'
+CELERY_RESULT_BACKEND = 'redis-12339.c1.asia-northeast1-1.gce.cloud.redislabs.com:12339'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_ENABLE_UTC = False
+CELERY_TIMEZONE = TIME_ZONE

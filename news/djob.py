@@ -9,6 +9,8 @@ from django.conf import settings
 from datetime import timedelta
 from .models import Post, CategorySubscribers, Category, PostCategory, Author
 
+from celery import shared_task
+
 
 @shared_task
 def notify_subscribers_for_new_post(id, title, content):
