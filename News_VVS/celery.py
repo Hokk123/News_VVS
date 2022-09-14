@@ -13,11 +13,6 @@ app.conf.beat_schedule = {
         'task': 'news.tasks.weekly_notify',
         'schedule': crontab(hour=8, minute=0, day_of_week='monday'),
     },
-    # Executes every Day, every 6 hours
-    'parsing-for-add-news': {
-        'task': 'news.tasks.daily_parsing',
-        'schedule': crontab(hour='*/6', minute=0)
-    }
 }
 
 app.autodiscover_tasks()

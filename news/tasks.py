@@ -11,10 +11,9 @@ from .models import Post, CategorySubscribers, Category, PostCategory, Author
 
 from celery import shared_task
 
-
+# Отправка письма подписчикам при добавлении нового поста в категорию
 @shared_task
 def notify_subscribers_for_new_post(id, title, content):
-    """Отправка письма подписчикам при добавлении нового поста в категорию"""
 
     site = Site.objects.get_current()
     link = f'http://{127.0.0.1}:8000/{id}/'
@@ -73,9 +72,9 @@ def notify_subscribers_for_new_post(id, title, content):
         return f'Sent {counter_mails} Emails'
 
 
+# Еженедельная рассылка новостей
 @shared_task
 def weekly_notify():
-    """Еженедельная рассылка новостей"""
     # Формируем ссылку для письма
     site = Site.objects.get_current()
     link = f'http://{127.0.0.1}:8000/'
