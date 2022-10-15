@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5326b669-4747-4974-8dce-2974d3961ece" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/News_VVS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_VVS/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_VVS/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/News_VVS/celery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sign/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/djob.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/signals.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

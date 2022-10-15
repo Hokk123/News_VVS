@@ -5,7 +5,7 @@ from django.core.cache.utils import make_template_fragment_key
 from django.db.models.signals import m2m_changed, post_delete
 from django.core.mail import mail_managers, send_mail
 from .models import Post, Category
-from .djob import notify_subscribers_for_new_post
+from .tasks import notify_subscribers_for_new_post
 
 
 

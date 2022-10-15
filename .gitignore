@@ -1,2 +1,6 @@
 .env
 **/*.pyc
+sign/__pycache__/
+protect/__pycache__/
+News_VVS/__pycache__/
+news/__pycache__/
