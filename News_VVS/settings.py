@@ -169,10 +169,10 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/news'
 
 ADMINS = [
-    ('admin', 'vladimir_vs@list.ru'),
+    ('admin', os.getenv('EMAIL_ADMIN')),
     # список всех админов в формате ('имя', 'их почта')
 ]
-SERVER_EMAIL = 'Hokk1234@yandex.ru'  # это будет у нас вместо аргумента FROM в массовой рассылке
+SERVER_EMAIL = os.getenv('SERVER_EMAIL')  # это будет у нас вместо аргумента FROM в массовой рассылке
 
 EMAIL_HOST = os.getenv('EMAIL_HOST')  # адрес сервера Яндекс-почты для всех один и тот же
 EMAIL_PORT = os.getenv('EMAIL_PORT')  # порт smtp сервера тоже одинаковый
@@ -180,7 +180,7 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # ваше имя пользов
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # пароль от почты
 EMAIL_USE_SSL = True  # Яндекс использует ssl
 
-DEFAULT_FROM_EMAIL = 'Hokk1234@yandex.ru'  # Адрес электронной почты по умолчанию, который будет использоваться для различной автоматической
+DEFAULT_FROM_EMAIL = os.getenv('SERVER_EMAIL')  # Адрес электронной почты по умолчанию, который будет использоваться для различной автоматической
 # корреспонденции от менеджера(ов) сайта.
 # Сюда не входят сообщения об ошибках, отправленные на адреса ADMINS и MANAGERS; для этого смотрите SERVER_EMAIL.
 
@@ -199,3 +199,175 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_ENABLE_UTC = False
 CELERY_TIMEZONE = TIME_ZONE
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'cache_files'),
+    }
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        #Debug in Console
+        'console_deb': {
+            'format': '%(levelname)s %(asctime)s %(message)s'
+        },
+        # INFO in Console
+        'console_inf': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
+        # WARNING in Console
+        'console_warning': {
+            'format': '%(levelname)s %(asctime)s %(message)s %(pathname)s'
+        },
+        # ERROR, CRITICAL in Console
+        'con_error_critic': {
+            'format': '%(levelname)s %(asctime)s %(message)s %(pathname)s %(exc_info)s'
+        },
+
+        # INFO in File
+        'file_info_format': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
+        # ERROR in File
+        'file_error_format': {
+            'format': '%(levelname)s %(asctime)s %(message)s %(pathname)s %(exc_info)s'
+        },
+        # SECURITY in File
+        'file_security': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
+
+        # MAIL
+        'mail': {
+            'format': '%(levelname)s : %(asctime)s : %(message)s : %(pathname)s'
+        }
+    },
+
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+    },
+
+    'handlers': {
+        # DEBUG in Console
+        'console_debug': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'console_deb',
+        },
+        # INFO in Console
+        'console_info': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'console_inf',
+        },
+        # WARNING in Console
+        'console_warning': {
+            'level': 'WARNING',
+            'class': 'logging.StreamHandler',
+            'formatter': 'console_warning',
+        },
+        # ERROR, CRITICAL in Console
+        'console_error': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler',
+            'formatter': 'con_error_critic',
+        },
+        # INFO in File
+        'file_info': {
+            'level': 'INFO',
+            'filters': ['require_debug_false'],
+            'class': 'logging.FileHandler',
+            'formatter': 'file_info_format',
+            'filename': 'general.log'
+        },
+        # ERROR in File
+        'file_error': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'formatter': 'file_error_format',
+            'filename': 'error.log'
+        },
+        # INFO Security in File
+        'file_security': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'formatter': 'file_security',
+            'filename': 'security.log'
+        },
+        # ERROR for Email
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'mail',
+        },
+    },
+
+    'loggers': {
+        'django': {
+            'handlers': [
+                'console_debug',
+                'console_info',
+                'console_warning',
+                'console_error',
+                'file_info',
+            ],
+            'level': 'INFO',
+            'propagate': True,
+        },
+
+        'django.request': {
+            'handlers': [
+                'mail_admins',
+                'file_error',
+            ],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+
+        'django.server': {
+            'handlers': [
+                'mail_admins',
+                'file_error',
+            ],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+
+        'django.template': {
+            'handlers': [
+                'file_error',
+            ],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+
+        'django.db.backends': {
+            'handlers': [
+                'file_error',
+            ],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+
+        'django.security': {
+            'handlers': [
+                'file_security',
+            ],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
