@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -18,6 +19,17 @@ from django.template.loader import render_to_string  # импортируем ф
 from django.conf import settings
 from django.utils import timezone
 
+from django.utils.translation import gettext as _ # импортируем функцию для перевода
+
+from django.core.cache import cache
+from django.views.decorators.cache import cache_page
+
+
+class Index(View):
+    def get(self, request):
+        string = _('Hello world')
+
+        return HttpResponse(string)
 
 # def notify_manager_models(sender, instance, created, **kwargs):
 #     mail_managers(

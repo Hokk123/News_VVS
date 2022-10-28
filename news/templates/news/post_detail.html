@@ -16,7 +16,7 @@ Posts
 
 <hr><br>
 <a href="/add_subscribe/1/">Подписаться на новости в категории: "{{ Post.categoryType }}"</a>
-{% for cat in Post.postCategory.all %}
+{% for cat in post_category %}
     {% if cat.cat.name not in is_subscribed %}
         <div class="container text-start">
             <div class="btn-group btn-group-sm" role="group">

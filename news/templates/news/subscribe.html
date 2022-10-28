@@ -9,17 +9,17 @@
     <div>
         <h1><a href="/news/">News Portal</a></h1>
     </div>
-<h2>Здесь Вы можете оформить подписку на новости категории {{ cat }}</h2>
+<h2>Здесь Вы можете оформить подписку на новости категории {{ cat_name }}</h2>
 <br>
 <div>
     {% if not is_subscribed %}
     <br>
-        <a href="{% url 'add_subscribe' cat.pk %}"><input type="submit" class="mt-6 btn btn-outline-primary" value="Подписаться" /></a>
+        <a href="{% url 'add_subscribe' cat_id %}"><input type="submit" class="mt-6 btn btn-outline-primary" value="Подписаться" /></a>
 
     {% else %}
     Вы уже подписаны на эту категорию новостей.  Хотите отписаться?<br><br>
 
-        <a href="{% url 'del_subscribe' cat.pk %}"><input type="submit" class="mt-6 btn btn-outline-primary" value="Отписаться" /></a>
+        <a href="{% url 'del_subscribe' cat_id %}"><input type="submit" class="mt-6 btn btn-outline-primary" value="Отписаться" /></a>
 
     {% endif %}
 </div><br>

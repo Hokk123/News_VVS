@@ -29,7 +29,7 @@ News
            <a class="nav-link" href="/news/news/{{post.pk}}">{{post.pk}}
            </a>
        </li>
-<!--       <h7>{{ post.postCategory.name }}</h7>-->
+       <h7>{{ post.postCategory.cat }}</h7>
        <h4>{{ post.dateCreation|date:'M d Y' }}</h4>
        <h4>{{ post.rating}}</h4>
        <h5>{{ post.text|truncatewords:20 }}</h5>
