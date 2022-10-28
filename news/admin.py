@@ -1,8 +1,19 @@
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
+from modeltranslation.admin import TranslationAdmin
 from .models import *
 
 
-# создаём новый класс для представления товаров в админке
+class CategoryAdmin(TranslationAdmin):
+    model = Category
+    list_display = ['name']
+
+
+class PostAdmin(TranslationAdmin):
+    model = Post
+    list_display = ('author', 'dateCreation')
+
+
 class UserAdmin(admin.ModelAdmin):
     # list_display — это список или кортеж со всеми полями, которые вы хотите видеть в таблице с товарами
     list_display = ('subscriber', 'category')  # оставляем только имя и цену товара
@@ -14,8 +25,8 @@ class UserAdmin(admin.ModelAdmin):
 # Register your models here.
 
 admin.site.register(Author)
-admin.site.register(Category)
 admin.site.register(Post)
+admin.site.register(Category)
 admin.site.register(PostCategory)
 admin.site.register(Comment)
 admin.site.register(CategorySubscribers, UserAdmin)
