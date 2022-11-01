@@ -1,6 +1,6 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from .models import Category, Post
+from .models import Author, Category, Post, PostCategory, Comment
 
 
 @register(Category)
@@ -10,4 +10,19 @@ class CategoryTranslationOptions(TranslationOptions):
 
 @register(Post)
 class PostTranslationOptions(TranslationOptions):
-    fields = ('author', 'text', )
+    fields = ('author', 'categoryType', 'text', 'dateCreation', 'title', 'rating', )
+
+
+@register(Author)
+class AuthorTranslationOptions(TranslationOptions):
+    fields = ('authorUser', 'ratingAuthor', )
+
+
+@register(PostCategory)
+class PostCategoryTranslationOptions(TranslationOptions):
+    fields = ('post', 'cat', )
+
+
+@register(Comment)
+class CommentTranslationOptions(TranslationOptions):
+    fields = ('commentPost', 'commentUser', 'text', 'dateCreation', 'rating', )

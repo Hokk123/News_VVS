@@ -1,17 +1,33 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from modeltranslation.admin import TranslationAdmin
-from .models import *
+from .models import Author, Category, Post, PostCategory, Comment, CategorySubscribers
+
+
+
+class AuthorAdmin(TranslationAdmin):
+    model = Author
+
 
 
 class CategoryAdmin(TranslationAdmin):
     model = Category
-    list_display = ['name']
+
 
 
 class PostAdmin(TranslationAdmin):
     model = Post
-    list_display = ('author', 'dateCreation')
+
+
+
+class PostCategoryAdmin(TranslationAdmin):
+    model = PostCategory
+
+
+
+class CommentAdmin(TranslationAdmin):
+    model = Comment
+
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -24,9 +40,9 @@ class UserAdmin(admin.ModelAdmin):
 
 # Register your models here.
 
-admin.site.register(Author)
-admin.site.register(Post)
-admin.site.register(Category)
-admin.site.register(PostCategory)
-admin.site.register(Comment)
-admin.site.register(CategorySubscribers, UserAdmin)
+admin.site.register(Author, AuthorAdmin)
+admin.site.register(Post, PostAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(PostCategory, PostCategoryAdmin)
+admin.site.register(Comment, CommentAdmin)
+admin.site.register(CategorySubscribers)

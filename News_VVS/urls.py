@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
+   path('i18n/', include('django.conf.urls.i18n')),
    path('admin/', admin.site.urls),
    path('post/', include('django.contrib.flatpages.urls')),
    # Делаем так, чтобы все адреса из нашего приложения (news/urls.py)
@@ -26,3 +28,8 @@ urlpatterns = [
    path('sign/', include('sign.urls')),
    path('accounts/', include('allauth.urls')),
 ]
+
+
+urlpatterns += i18n_patterns(
+   path('', include('news.urls')),
+)

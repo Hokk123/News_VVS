@@ -25,11 +25,11 @@ from django.core.cache import cache
 from django.views.decorators.cache import cache_page
 
 
-class Index(View):
-    def get(self, request):
-        string = _('Hello world')
-
-        return HttpResponse(string)
+# class Index(View):
+#     def get(self, request):
+#         string = _('Hello world')
+#
+#         return HttpResponse(string)
 
 # def notify_manager_models(sender, instance, created, **kwargs):
 #     mail_managers(
