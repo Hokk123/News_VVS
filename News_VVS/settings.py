@@ -83,7 +83,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'News_VVS.urls'
 
-LOCALE_PATH = [
+LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale')
 ]
 

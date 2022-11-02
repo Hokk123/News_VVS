@@ -3187,3 +3187,1865 @@ Traceback (most recent call last):
     return Database.Cursor.execute(self, query, params)
 django.db.utils.OperationalError: no such column: news_post.author_en_id
 ERROR 2022-11-01 17:37:16,636 "GET /news/news/ HTTP/1.1" 500 215136 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-01 17:40:59,381 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x00000276B23B9E40>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-01 17:40:59,399 "GET /news/news/ HTTP/1.1" 500 215120 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-01 17:41:22,845 Internal Server Error: /news/create/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.dateCreation_ru'), <traceback object at 0x00000276B2518BC0>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.dateCreation_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\base.py", line 119, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\edit.py", line 180, in get
+    return super().get(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "C:\PycharmProjects\DjangoProject\D_project\News_VVS\news\views.py", line 149, in get_context_data
+    posts_day_count = Post.objects.filter(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 470, in count
+    return self.query.get_count(using=self.db)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\query.py", line 552, in get_count
+    number = obj.get_aggregation(using, ["__count"])["__count"]
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\query.py", line 537, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.dateCreation_ru
+ERROR 2022-11-01 17:41:22,858 "GET /news/create/ HTTP/1.1" 500 159774 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-01 17:41:32,388 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x00000276B2789740>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-01 17:41:32,401 "GET /news/news/ HTTP/1.1" 500 215120 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-01 17:51:50,406 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x00000276B255EB40>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-01 17:51:50,420 "GET /news/news/ HTTP/1.1" 500 215120 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-01 17:53:18,642 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x0000019FF7F1F500>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-01 17:53:18,664 "GET /news/news/ HTTP/1.1" 500 215120 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-01 17:54:15,776 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x0000026129ED99C0>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-01 17:54:15,798 "GET /news/news/ HTTP/1.1" 500 215136 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 10:43:31,662 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x0000021C788F0100>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 10:43:31,715 "GET /news/news/ HTTP/1.1" 500 215466 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 10:49:54,818 Internal Server Error: /news/create/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.dateCreation_ru'), <traceback object at 0x0000021C78793240>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.dateCreation_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\base.py", line 119, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\edit.py", line 180, in get
+    return super().get(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "C:\PycharmProjects\DjangoProject\D_project\News_VVS\news\views.py", line 149, in get_context_data
+    posts_day_count = Post.objects.filter(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 470, in count
+    return self.query.get_count(using=self.db)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\query.py", line 552, in get_count
+    number = obj.get_aggregation(using, ["__count"])["__count"]
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\query.py", line 537, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.dateCreation_ru
+ERROR 2022-11-02 10:49:54,830 "GET /news/create/ HTTP/1.1" 500 160134 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 10:50:13,992 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x0000021C787F7A00>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 10:50:14,008 "GET /news/news/ HTTP/1.1" 500 215482 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:15:30,342 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x000002388FDA7380>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:15:30,360 "GET /news/news/ HTTP/1.1" 500 218140 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:19:54,811 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x00000230AA094DC0>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:19:54,834 "GET /news/news/ HTTP/1.1" 500 216629 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:28:46,591 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x000001FF673F4F80>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:28:46,610 "GET /news/news/ HTTP/1.1" 500 216645 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:30:21,844 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x000001FF67740E80>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:30:21,857 "GET /news/news/ HTTP/1.1" 500 216671 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:30:32,197 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x000001FF67899C80>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:30:32,211 "GET /news/news/ HTTP/1.1" 500 216671 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:30:52,962 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x000001FF6787B980>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:30:52,975 "GET /news/news/ HTTP/1.1" 500 216186 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:31:41,694 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x0000018AD35D6F80>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:31:41,714 "GET /news/news/ HTTP/1.1" 500 216394 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:32:45,458 Internal Server Error: /news/create/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.dateCreation_en'), <traceback object at 0x0000018AD355A600>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.dateCreation_en
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\base.py", line 119, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\edit.py", line 180, in get
+    return super().get(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "C:\PycharmProjects\DjangoProject\D_project\News_VVS\news\views.py", line 149, in get_context_data
+    posts_day_count = Post.objects.filter(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 470, in count
+    return self.query.get_count(using=self.db)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\query.py", line 552, in get_count
+    number = obj.get_aggregation(using, ["__count"])["__count"]
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\query.py", line 537, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.dateCreation_en
+ERROR 2022-11-02 11:32:45,473 "GET /news/create/ HTTP/1.1" 500 159818 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:33:07,499 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x0000018AD3647780>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:33:07,512 "GET /news/news/ HTTP/1.1" 500 216394 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:34:42,131 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x0000018AD398D440>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:34:42,145 "GET /news/news/ HTTP/1.1" 500 216160 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:39:58,734 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x00000193BD2CC340>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:39:58,752 "GET /news/news/ HTTP/1.1" 500 216307 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:46:43,684 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x000001E702DE2A00>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:46:43,707 "GET /news/news/ HTTP/1.1" 500 216539 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:46:50,896 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x000001E7030DB3C0>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:46:50,910 "GET /news/news/ HTTP/1.1" 500 216539 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:46:57,529 Internal Server Error: /news/create/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.dateCreation_en'), <traceback object at 0x000001E702D61FC0>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.dateCreation_en
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\base.py", line 119, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\edit.py", line 180, in get
+    return super().get(request, *args, **kwargs)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\views\generic\edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "C:\PycharmProjects\DjangoProject\D_project\News_VVS\news\views.py", line 149, in get_context_data
+    posts_day_count = Post.objects.filter(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 470, in count
+    return self.query.get_count(using=self.db)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\query.py", line 552, in get_count
+    number = obj.get_aggregation(using, ["__count"])["__count"]
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\query.py", line 537, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.dateCreation_en
+ERROR 2022-11-02 11:46:57,542 "GET /news/create/ HTTP/1.1" 500 159818 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:47:14,231 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x000001E702CC6B80>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:47:14,247 "GET /news/news/ HTTP/1.1" 500 216555 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 11:47:28,357 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x000001E703143C00>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 11:47:28,370 "GET /news/news/ HTTP/1.1" 500 216555 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+ERROR 2022-11-02 16:18:42,045 Internal Server Error: /news/news/ C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.author_en_id'), <traceback object at 0x000001E7030F7700>)
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.author_en_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\base.py", line 958, in render_annotated
+    return self.render(context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    if match:
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 324, in __bool__
+    self._fetch_all()
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 1507, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\query.py", line 57, in __iter__
+    results = compiler.execute_sql(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1361, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 477, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.author_en_id
+ERROR 2022-11-02 16:18:42,060 "GET /news/news/ HTTP/1.1" 500 216559 C:\PycharmProjects\DjangoProject\venv\lib\site-packages\django\core\servers\basehttp.py None

@@ -42,7 +42,7 @@ class CategorySubscribers(models.Model):
 
 
 class Post(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, verbose_name=_('Автор'),)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)    #verbose_name=_('Автор'),)
 
     NEWS = 'NW'
     ARTICLE = 'AR'
